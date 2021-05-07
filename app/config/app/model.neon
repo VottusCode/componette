@@ -5,9 +5,12 @@ services:
 
 	# WebServices ==========================================
 
-	# [github]
-	- App\Model\WebServices\Github\GithubClient(token: %github.token%)
-	- App\Model\WebServices\Github\GithubService
+	# []
+	- App\Model\WebServices\Git\Github\GithubClient(token: %github.token%)
+	- App\Model\WebServices\Git\Github\GitlabClient(token: %github.token%)
+	- App\Model\WebServices\Git\Github\GithubService
+	- App\Model\WebServices\Git\Github\GitlabService
+	- App\Model\WebServices\Git\GitProvider
 
 	# [composer]
 	- App\Model\WebServices\Composer\ComposerClient

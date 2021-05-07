@@ -7,7 +7,7 @@ use App\Model\Database\ORM\Addon\Addon;
 use App\Model\Database\ORM\Addon\AddonRepository;
 use App\Model\Database\ORM\Github\Github;
 use App\Model\Utils\Validators;
-use App\Model\WebServices\Github\GithubService;
+use App\Model\WebServices\Git\Github\GithubService;
 use Contributte\Utils\Urls;
 use Nette\Utils\Strings;
 use Nextras\Orm\Collection\ICollection;

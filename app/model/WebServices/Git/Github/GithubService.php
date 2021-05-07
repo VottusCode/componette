@@ -1,11 +1,12 @@
 <?php declare(strict_types = 1);
 
-namespace App\Model\WebServices\Github;
+namespace App\Model\WebServices\Git\Github;
 
-use App\Model\Exceptions\Runtime\WebServices\GithubException;
+use App\Model\Exceptions\Runtime\WebServices\GitException;
+use App\Model\WebServices\Git\GitService;
 use Contributte\Http\Curl\Response;
 
-final class GithubService
+final class GithubService implements GitService
 {
 
 	// Mediatypes
@@ -25,11 +26,11 @@ final class GithubService
 	 * @param string[] $headers
 	 * @param mixed[] $opts
 	 */
-	protected function makeRequest(string $url, array $headers = [], array $opts = []): Response
+	public function makeRequest(string $url, array $headers = [], array $opts = []): Response
 	{
 		try {
 			return $this->client->makeRequest($url, $headers, $opts);
-		} catch (GithubException $e) {
+		} catch (GitException $e) {
 			$response = new Response();
 			$response->setError($e);
 
@@ -41,7 +42,7 @@ final class GithubService
 	 * @param string[] $headers
 	 * @param string[] $opts
 	 */
-	protected function call(string $uri, array $headers = [], array $opts = []): Response
+	public function call(string $uri, array $headers = [], array $opts = []): Response
 	{
 		return $this->makeRequest($this->client->getApiUrl($uri), $headers, $opts);
 	}
@@ -51,7 +52,7 @@ final class GithubService
 	 * @param string[] $opts
 	 * @return Response[]
 	 */
-	protected function aggregate(string $url, array $headers = [], array $opts = []): array
+	public function aggregate(string $url, array $headers = [], array $opts = []): array
 	{
 		// Fire request
 		$response = $this->makeRequest($url, $headers, $opts);
@@ -81,7 +82,7 @@ final class GithubService
 	/**
 	 * @return string[][]
 	 */
-	protected function parsePages(string $link): array
+	public function parsePages(string $link): array
 	{
 		preg_match_all('#<(.+\?page=(\d+))>;\srel=.((?:next|last|first)).#U', $link, $matches);
 		if (!$matches) {

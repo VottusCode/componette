@@ -2,7 +2,7 @@
 
 namespace App\Model\Exceptions\Runtime\WebServices;
 
-final class GithubException extends WebServiceClientException
+final class GitException extends WebServiceClientException
 {
 
 }

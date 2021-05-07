@@ -1,8 +1,8 @@
 <?php declare(strict_types = 1);
 
-namespace App\Model\WebServices\Github;
+namespace App\Model\WebServices\Git\Github;
 
-use App\Model\Exceptions\Runtime\WebServices\GithubException;
+use App\Model\Exceptions\Runtime\WebServices\GitException;
 use Contributte\Http\Curl\CurlClient;
 use Contributte\Http\Curl\Response;
 
@@ -54,7 +54,7 @@ final class GithubClient
 		$response = $this->curl->makeRequest($url, $headers, $opts);
 
 		if ($response->getStatusCode() > 400) {
-			throw new GithubException($response);
+			throw new GitException($response);
 		}
 
 		return $response;

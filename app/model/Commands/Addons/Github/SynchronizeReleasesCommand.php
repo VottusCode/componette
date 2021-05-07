@@ -7,7 +7,7 @@ use App\Model\Database\ORM\Github\GithubRepository;
 use App\Model\Database\ORM\GithubRelease\GithubRelease;
 use App\Model\Database\ORM\GithubRelease\GithubReleaseRepository;
 use App\Model\Facade\Cli\Commands\AddonFacade;
-use App\Model\WebServices\Github\GithubService;
+use App\Model\WebServices\Git\Github\GithubService;
 use Nette\Utils\DateTime;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;

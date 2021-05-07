@@ -6,7 +6,7 @@ use App\Model\Caching\CacheKeys;
 use App\Model\Database\ORM\Addon\Addon;
 use App\Model\Database\ORM\Addon\AddonRepository;
 use App\Model\UI\BaseControl;
-use App\Model\WebServices\Github\GithubService;
+use App\Model\WebServices\Git\Github\GithubService;
 use Contributte\Cache\CacheFactory;
 use Nette\Caching\Cache;
 use Nette\Utils\DateTime;

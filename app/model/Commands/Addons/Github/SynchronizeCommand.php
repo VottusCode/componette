@@ -7,7 +7,7 @@ use App\Model\Commands\BaseCommand;
 use App\Model\Database\ORM\Addon\Addon;
 use App\Model\Database\ORM\Github\Github;
 use App\Model\Facade\Cli\Commands\AddonFacade;
-use App\Model\WebServices\Github\GithubService;
+use App\Model\WebServices\Git\Github\GithubService;
 use Nette\Utils\Strings;
 use Nextras\Dbal\Utils\DateTimeImmutable;
 use Symfony\Component\Console\Input\InputInterface;
